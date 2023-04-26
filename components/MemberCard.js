@@ -13,10 +13,10 @@ export default function MemberCard({ memberObj, onUpdate }) {
 
   return (
     <Card style={{ width: '18rem', margin: '10px' }}>
-      <Card.Img variant="top" src={memberObj.image} alt={memberObj.name} style={{ height: '400px' }} />
+      <Card.Img variant="top" src={memberObj.imageUrl} alt={memberObj.name} style={{ height: '400px' }} />
       <Card.Body>
         <Card.Title>{memberObj.name}</Card.Title>
-        <p className="card-text bold">{memberObj.role && <span>ROLE<br /></span> }</p>
+        <p className="card-text bold">{memberObj.role}</p>
         {/* DYNAMIC LINK TO VIEW THE MEMBER DETAILS  */}
         <Link href={`/member/${memberObj.firebaseKey}`} passHref>
           <Button variant="primary" className="m-2">VIEW</Button>
@@ -36,7 +36,7 @@ export default function MemberCard({ memberObj, onUpdate }) {
 MemberCard.propTypes = {
   memberObj: PropTypes.shape({
     name: PropTypes.string,
-    image: PropTypes.string,
+    imageUrl: PropTypes.string,
     role: PropTypes.string,
     firebaseKey: PropTypes.string,
   }).isRequired,
